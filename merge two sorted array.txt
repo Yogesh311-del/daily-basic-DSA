@@ -1,0 +1,93 @@
+//// merge sorted array
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    int arr[] = {1,5,8,9,10};
+    int n = sizeof(arr)/sizeof(int);
+    int brr[] = {2,5,5,7,11,12};
+    int m = sizeof(brr)/sizeof(int);
+    
+    
+    int i = n-1;
+    int j = m-1;
+    
+    int crr[m+n];
+    int k = m+n-1;
+    
+    
+    while(i>=0 and j>=0){
+        if(arr[i]>brr[j]){
+            crr[k] = arr[i];
+            k--;
+            i--;
+        }
+        else{
+            crr[k] = brr[j];
+            j--;
+            k--;
+        }
+    }
+    
+    while(i>=0){
+        crr[k] = arr[i];
+        k--;
+        i--;
+    }
+    
+    while(j>=0){
+        crr[k] = arr[j];
+        k--;
+        j--;
+    }
+    
+    // cout<<k<<endl;
+    
+    for(int i=0; i<=10;i++){
+        cout<<crr[i]<<" ";
+    }
+    
+    return 0;
+}
+
+
+
+// simple 
+#include <iostream>
+#include<algorithm>
+using namespace std;
+
+int main()
+{
+    int arr[] = {1,6,8,9,10};
+    int n = sizeof(arr)/sizeof(int);
+    int brr[] = {2,6,6,7,11,12};
+    int m = sizeof(brr)/sizeof(int);
+    
+    
+   
+    int crr[m+n];
+    int i=0;
+    int j=0;
+    int k = 0;
+    
+    while(i<n){
+        crr[k]=arr[i];
+        k++;
+        i++;
+    }
+    
+    while(j<m){
+        crr[k]=brr[j];
+        k++;
+        j++;
+    }
+    
+    sort(crr, crr+k);
+    
+    for(int i=0;i<k;i++){
+        cout<<crr[i]<<" ";
+    }
+    return 0;
+}
