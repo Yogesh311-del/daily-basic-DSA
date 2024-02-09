@@ -1,0 +1,33 @@
+// ****** Check if Array is subarray of another Array ****** //  
+#include <iostream>
+#include<unordered_map>
+using namespace std;
+
+int main()
+{
+    int arr1[] = {1,2,3,8,7,5,9,11,13};
+    int arr2[] = {5,11,9,13,1};
+    unordered_map<int, int> map; 
+    string result;
+    
+    int n = sizeof(arr1)/sizeof(int);
+    int m = sizeof(arr2)/sizeof(int);
+    
+    int j=0;
+    for(int i=0;i<n;i++){
+        map[arr1[i]]++;
+    }
+    
+    for(int i=0;i<m;i++){
+        if(map.find(arr2[i]) == map.end()){
+            result =  "No";
+            break;
+        }
+    }
+    if(result == "No")
+    cout<<"No";
+    else
+    cout<<"Yes";
+
+    return 0;
+}
