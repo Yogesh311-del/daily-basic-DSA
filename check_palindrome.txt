@@ -1,0 +1,24 @@
+#include<iostream>
+using namespace std;
+
+int main(){
+    
+    int n;
+    cout<<"entere the number to check palindrome for: ";
+    cin>>n;
+    
+    
+    int remender, reverse=0;
+    int k = n;
+    while(k!=0){
+        remender = k%10;
+        reverse = reverse*10 + remender;
+        k = k/10;
+    }
+    
+    if(reverse == n)
+    cout<<"its palindrome";
+    
+    else cout<<"not palindrome";
+    return 0;
+}
